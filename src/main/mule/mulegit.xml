@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="f4e27603-6fd0-46df-b3b3-f100b8ed8caf" basePath="/api/data">
+	</http:request-config>
+	<flow name="mulegitFlow" doc:id="7540c998-0d2e-402f-ac76-d15f2ae81ed1" >
+		<http:listener doc:name="Listener" doc:id="31f87d1e-cbc5-4ab1-9927-23bb6873069b" config-ref="HTTP_Listener_config" path="/muleGit"/>
+		<http:request method="GET" doc:name="Request" doc:id="61901393-d422-4be6-ae7c-996dc2a52317" config-ref="HTTP_Request_configuration" url="https://datausa.io/api/data?drilldowns=Nation&amp;measures=Population">
+		</http:request>
+	</flow>
+</mule>
